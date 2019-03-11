@@ -2,9 +2,16 @@
 #include <fstream>
 #include <string>
 //
-bankAccount** readFile(string file, int& accounts); 
+//File reading function
+bankAccount** readFile(string file, int& accounts);
+
+//Print accounts function
 void printAccounts(bankAccount** B, int accounts);
+
+//Make transaction function
 bool makeTransaction(bankAccount** B,int accounts, int id, float amount, string transtype);
+
+//detete accounts function
 void deleteAccounts(bankAccount**& B, int& accounts);
 //
 void main()
@@ -224,6 +231,7 @@ void main()
 }
 //
 //
+//file reading implementation
 bankAccount** readFile(string file, int& accounts){
 	
 	bankAccount** temp=nullptr;
@@ -254,10 +262,14 @@ bankAccount** readFile(string file, int& accounts){
 	}
 	return temp;
 }
+
+//print accounts implementation
 void printAccounts(bankAccount** B, int accounts){
 	for(int i=0; i<accounts; i++)
 		B[i]->print();
 }
+
+//make transactions implementation
 bool makeTransaction(bankAccount** B,int accounts, int id, float amount, string transtype){
 	bool found=false;
 	for(int i=0; i<accounts; i++){
@@ -281,6 +293,7 @@ bool makeTransaction(bankAccount** B,int accounts, int id, float amount, string 
 		cout<<"Account not found!"<<endl;
 }
 
+//delete accounts implementation
 void deleteAccounts(bankAccount**& B, int& accounts){
 	int count=0;
 	for(int i=0; i<accounts; i++){
